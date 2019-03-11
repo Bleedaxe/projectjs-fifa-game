@@ -6,6 +6,7 @@ const Home = {
         return teams;
     },
     after_render: async () => {
+        await TeamService.afterRender();
     }
 
 }

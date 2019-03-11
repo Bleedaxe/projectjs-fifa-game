@@ -3,11 +3,13 @@ import Error404 from '../views/pages/Error404.js';
 
 import Navbar from '../views/components/Navbar.js';
 import Bottom from '../views/components/Bottom.js';
+import Matches from '../views/pages/Matches.js';
 
 import RequestService from './RequestService.js';
 
 const routes = {
     '/' : Home,
+    '/matches' : Matches
 };
 
 const router = async () => {
@@ -15,6 +17,7 @@ const router = async () => {
     const content = document.getElementById('page_container');
     const footer = document.getElementById('footer_container');
     
+    content.innerHTML = "Loading...";
     header.innerHTML = await Navbar.render();
     await Navbar.after_render();
     footer.innerHTML = await Bottom.render();
@@ -22,15 +25,18 @@ const router = async () => {
 
     let request = RequestService.parseRequestUrl();
 
-    let parsedURL = (request.resource ? '/' + request.resource : '/') + (request.id ? '/:id' : '') + (request.verb ? '/' + request.verb : '');
+    let parsedURL = (request.resource ? '/' + request.resource : '/');
     
     let page = routes[parsedURL] ? routes[parsedURL] : Error404;
-    content.innerHTML = "";
-    let contentHtml = await page.render();
+    let contentHtml = await page.render(request.id);
     content.innerHTML = contentHtml;
     await page.after_render();
     
 }
 
-window.addEventListener('hashchange', router);
+window.addEventListener('hashchange', () => {
+    location.search = "";
+    router();
+});
+window.addEventListener('search', router);
 window.addEventListener('load', router);
