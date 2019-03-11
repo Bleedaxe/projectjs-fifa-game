@@ -1,0 +1,12 @@
+.team {
+    clear: both;
+}
+
+.team p {
+    float: left;
+    margin-right: 10px;
+}
+
+#footer_container {
+    clear: both;
+}
