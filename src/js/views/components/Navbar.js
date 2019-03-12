@@ -1,22 +1,22 @@
 let Navbar = {
     render: async () => {
-        let view =  /*html*/`
+        let result = 
+        `
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Teams</a>
+                    <a class="nav-link" href="#">Teams</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#/history">History</a>
+                    <a class="nav-link" href="#matches">Matches</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#history">History</a>
                 </li>
             </ul>
         `
-        return view
+        return result
     },
     after_render: async () => { }
-
 }
 
 export default Navbar;

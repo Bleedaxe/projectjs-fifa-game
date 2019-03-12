@@ -1,14 +1,11 @@
 import MatchesService from "../../services/MathcesService.js";
 
 const Matches = {
-    render : async (code) => {
-        if(!code){
-            return "No result found! :(";
-        }
-        return await MatchesService.get(code);
+    render : async () => {
+        return await MatchesService.render();
     },
     after_render: async () => {
-        
+        await MatchesService.afterRender();
     }
 
 }
