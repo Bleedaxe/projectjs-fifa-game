@@ -3,7 +3,7 @@ import HistoryService from "../../services/HistoryService.js";
 const History = (function () {
    const render = async function () {
         const toHtml = function (element) {
-            return `<a href="${element}" class="list-group-item list-group-item-action">${element}</a>`
+            return `<a href="${element}" class="list-group-item list-group-item-action">${element.key} | ${element.value}</a>`
         }
         const historyElements = await HistoryService.getHistory();
         const result = 

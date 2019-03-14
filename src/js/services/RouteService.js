@@ -13,8 +13,8 @@ import Group from '../views/pages/Groups.js';
 import History from '../views/pages/History.js';
 
 const onPageRender = function (request) {
-    const index = Object.keys(localStorage).length;
-    localStorage[index] = request;
+    const date = new Date();
+    localStorage[date.toLocaleString()] = request;
 }
 
 const initial = function () {
