@@ -10,3 +10,18 @@
 #footer_container {
     clear: both;
 }
+
+h1, h2, h3, h4 {
+    text-align: center;
+}
+.collapseDetails {
+    float: left;
+}
+.collapseDetails p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.clickable {
+    cursor: pointer;
+}

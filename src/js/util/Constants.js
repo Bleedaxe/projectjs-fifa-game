@@ -3,6 +3,7 @@ const CONSTANTS = {
     Routes: {
         teams: "http://worldcup.sfg.io/teams/",
         matches: "http://worldcup.sfg.io/matches",
+        countryMatches: 'http://worldcup.sfg.io/matches/country?fifa_code=',
         groups: "http://worldcup.sfg.io/teams/group_results",
     },
     events: {

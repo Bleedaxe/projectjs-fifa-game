@@ -1,16 +1,17 @@
 import Home from '../views/pages/Home.js';
+import Group from '../views/pages/Groups.js';
+import History from '../views/pages/History.js';
+import Matches from '../views/pages/Matches.js';
 import Error404 from '../views/pages/Error404.js';
 
 import Navbar from '../views/components/Navbar.js';
-import Bottom from '../views/components/Bottom.js';
-import Matches from '../views/pages/Matches.js';
-
-import RequestService from './RequestService.js';
 
 import PubSub from '../../observer/PubSub.js';
+
 import CONSTANTS from '../util/constants.js';
-import Group from '../views/pages/Groups.js';
-import History from '../views/pages/History.js';
+
+import RequestService from './RequestService.js';
+import Match from '../views/pages/Match.js';
 
 const onPageRender = function (request) {
     const date = new Date();
@@ -26,18 +27,16 @@ const routes = {
     '/' : Home,
     '/matches/:id' : Matches,
     '/matches' : Matches,
+    '/match/:id' : Match,
     '/group/:id' : Group,
     '/history' : History
 };
 
 const onLoad = async function () {
     const header = document.getElementById('header_container');
-    const footer = document.getElementById('footer_container');
     
     header.innerHTML = await Navbar.render();
     await Navbar.after_render();
-    footer.innerHTML = await Bottom.render();
-    await Bottom.after_render();
 
     await router();
 }

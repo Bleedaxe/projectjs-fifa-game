@@ -1,7 +1,7 @@
 const HistoryService = (function () {
     const getHistory = function () {
         return Object.keys(localStorage)
-            .sort((a, b) => b - a)
+            .sort((a, b) => b.localeCompare(a))
             .map(k => {
                 return {
                     key: k,
